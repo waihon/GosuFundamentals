@@ -1,0 +1,53 @@
+{
+  "Title": "Gosu Experiment",
+  "Version": 2,
+  "Name": "GosuFundamentals",
+  "ActiveTab": "src/main/gosu/gettingstarted/HelloWorld.gsp",
+  "Tabs": [
+    "src/main/gosu/gettingstarted/HelloWorld.gsp"
+  ],
+  "SourcePath": [
+    "src/main/gosu"
+  ],
+  "BackingSource": [  ],
+  "RunConfigs": [
+    {
+      "$construct_type": "editor.run.ProgramRunConfig",
+      "_params": {
+        "$construct_type": "editor.run.ProgramRunConfigParameters",
+        "_name": "HelloWorld",
+        "_fqn": "gettingstarted.HelloWorld",
+        "_vmArgs": null,
+        "_progArgs": null,
+        "_workingDir": null,
+        "_jre": null,
+        "_bJre": 0
+      }
+    },
+    {
+      "$construct_type": "editor.run.ProgramRunConfig",
+      "_params": {
+        "$construct_type": "editor.run.ProgramRunConfigParameters",
+        "_name": "First",
+        "_fqn": "gettingstarted.First",
+        "_vmArgs": null,
+        "_progArgs": null,
+        "_workingDir": null,
+        "_jre": null,
+        "_bJre": 0
+      }
+    }
+  ],
+  "MruRunConfig": "HelloWorld",
+  "Settings": [
+    {
+      "$construct_type": "editor.settings.CompilerSettings",
+      "_params": {
+        "$construct_type": "editor.settings.CompilerSettingsParameters",
+        "_sourceBased": 1,
+        "_ouputPath": "classes"
+      }
+    }
+  ],
+  "MruSettings": null
+}
