@@ -1,3 +1,5 @@
+uses java.text.NumberFormat
+
 //
 // Mortgage Calculator
 //
@@ -47,4 +49,5 @@ print("Dividend: ${dividend}")
 print("Divisor: ${divisor}")
 print("-----")
 
-print("Mortgage: $${mortgage}")
+var mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage)
+print("Mortgage: ${mortgageFormatted}")
