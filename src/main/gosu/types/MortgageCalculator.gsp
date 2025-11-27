@@ -6,22 +6,31 @@ uses java.text.NumberFormat
 
 var scanner = new Scanner(System.in)
 
+System.out.print("Name: ")
+var name = scanner.nextLine()
+
 System.out.print("Principal: $")
 var principal = scanner.nextInt()
-scanner.nextLine()
 
 System.out.print("Annual Interest Rate (%): ")
 var annualRate = scanner.nextDouble()
-scanner.nextLine()
 
 System.out.print("Period (Years): ")
 var periodInYears = scanner.nextInt()
+
+// You must use an extra, throwaway call to scanner.nextLine() immediately after
+// a token-based read, when the next required input is a full line of text read by
+// a subsequent nextLine().
 scanner.nextLine()
+System.out.print("City: ")
+var city = scanner.nextLine()
 print("-----")
 
+print("Name: ${name}")
 print("Principal: $${principal}")
 print("Annual Rate (%): ${annualRate}")
 print("Period (Years): ${periodInYears}")
+print("City: ${city}")
 print("-----")
 
 //        r ((1 + r) ^ n) 
