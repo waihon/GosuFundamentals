@@ -29,16 +29,19 @@ print("-----")
 //
 // When principal = 100,000, annualRate = 3.92, periodInYears = 30, the mortgage payment should be 472.81 
 
-var rate : double = annualRate / 100 / 12
-var period : int = periodInYears * 12
-var compoundingFactor : double = Math.pow((1 + rate), period)
-var dividend : double = rate * compoundingFactor
+static final var PERCENT = 100
+static final var MONTHS_IN_YEAR = 12
+
+var monthlyRate : double = annualRate / PERCENT / MONTHS_IN_YEAR
+var periodInMonths : int = periodInYears * MONTHS_IN_YEAR
+var compoundingFactor : double = Math.pow((1 + monthlyRate), periodInMonths)
+var dividend : double = monthlyRate * compoundingFactor
 var divisor : double = compoundingFactor - 1.0
 var mortgage : double = principal * dividend / divisor
 mortgage = Math.round(mortgage * 100.0) / 100.0 // round to 2 decimal places
 
-print("Monthly Rate: ${rate}")
-print("Period in Months: ${period}")
+print("Monthly Rate: ${monthlyRate}")
+print("Period in Months: ${periodInMonths}")
 print("Compounding Factor: ${compoundingFactor}")
 print("Dividend: ${dividend}")
 print("Divisor: ${divisor}")
