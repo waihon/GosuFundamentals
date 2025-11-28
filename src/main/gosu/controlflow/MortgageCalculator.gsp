@@ -5,16 +5,43 @@ uses java.text.NumberFormat
 //
 
 var scanner = new Scanner(System.in)
+var principal: int
+var annualRate: double
+var periodInYears: int
 
-System.out.print("Principal: $")
-var principal = scanner.nextInt()
+while (true) {
+  System.out.print("Principal (1,000 - 1,000,000): $")
+  principal = scanner.nextInt()
 
-System.out.print("Annual Interest Rate (%): ")
-var annualRate = scanner.nextDouble()
+  if (principal >= 1000 and principal <= 1000000) {
+    break // valid input
+  }
 
-System.out.print("Period (Years): ")
-var periodInYears = scanner.nextInt()
+  print("Enter a value between 1,000 and 1,000,000.")
+}
 
+
+while (true) {
+  System.out.print("Annual Interest Rate (%): ")
+  annualRate = scanner.nextDouble()
+
+  if (annualRate >= 1.0 and annualRate <= 20.0) {
+    break // valid input
+  }
+
+  print("Enter a value between 1 and 20.")
+}
+
+while (true) {
+  System.out.print("Period (Years): ")
+  periodInYears = scanner.nextInt()
+
+  if (periodInYears >= 10 and periodInYears <= 30) {
+    break // valid input
+  }
+
+  print("Enter a value between 10 and 30.")
+}
 
 //        r ((1 + r) ^ n) 
 // M = P -----------------
@@ -26,12 +53,10 @@ var periodInYears = scanner.nextInt()
 static final var PERCENT = 100
 static final var MONTHS_IN_YEAR = 12
 
-var monthlyRate : double = annualRate / PERCENT / MONTHS_IN_YEAR
-var periodInMonths : int = periodInYears * MONTHS_IN_YEAR
-var compoundingFactor : double = Math.pow((1 + monthlyRate), periodInMonths)
-var dividend : double = monthlyRate * compoundingFactor
-var divisor : double = compoundingFactor - 1.0
-var mortgage : double = principal * dividend / divisor
+var monthlyRate: double = annualRate / PERCENT / MONTHS_IN_YEAR
+var periodInMonths: int = periodInYears * MONTHS_IN_YEAR
+var compoundingFactor: double = Math.pow((1 + monthlyRate), periodInMonths)
+var mortgage: double = principal * (monthlyRate * compoundingFactor) / (compoundingFactor - 1.0)
 mortgage = Math.round(mortgage * 100.0) / 100.0 // round to 2 decimal places
 var mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage)
 
