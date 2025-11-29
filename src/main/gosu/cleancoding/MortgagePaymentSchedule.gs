@@ -11,6 +11,12 @@ class MortgagePaymentSchedule {
     var periodInYears: int = MortgageInput.readPeriodInYears()
     print("")
 
+    printMortgage(principal, annualRate, periodInYears)
+
+    printPaymentSchedule(principal, annualRate, periodInYears)
+  }
+
+  static function printMortgage(principal: int, annualRate: double, periodInYears: int) {
     var mortgage = MortgageCalculator.calculateMortgage(principal, annualRate, periodInYears)
     var mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage)
 
@@ -18,11 +24,9 @@ class MortgagePaymentSchedule {
     print("--------")
     print("Monthly Payments: ${mortgageFormatted}")
     print("")
-    
-    paymentSchedule(principal, annualRate, periodInYears)
   }
   
-  static function paymentSchedule(principal: int, annualRate: double, periodInYears: int) {
+  static function printPaymentSchedule(principal: int, annualRate: double, periodInYears: int) {
     var monthlyRate = MortgageCalculator.getMonthlyRate(annualRate)
     var periodInMonths = MortgageCalculator.getPeriodInMonths(periodInYears)
 
