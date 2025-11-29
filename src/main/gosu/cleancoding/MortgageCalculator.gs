@@ -53,4 +53,18 @@ class MortgageCalculator {
   static function getCompoundingFactor(annualRate: double, periodInYears: int): double {
     return Math.pow((1 + getMonthlyRate(annualRate)), getPeriodInMonths(periodInYears))
   }
+
+  static function calculateBalance(
+    principal: int,
+    annualRate: double,
+    periodInYears: int,
+    numOfPaymentsMade: int): double {
+
+    var monthlyRate = getMonthlyRate(annualRate)
+    var periodInMonths = getPeriodInMonths(periodInYears)
+
+    return principal
+      * (Math.pow(1 + monthlyRate, periodInMonths) - Math.pow(1 + monthlyRate, numOfPaymentsMade))
+      / (Math.pow(1 + monthlyRate, periodInMonths) - 1)
+  }
 }
