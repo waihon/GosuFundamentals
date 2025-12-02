@@ -22,4 +22,4 @@ print(Math.min(f, d)) // 1.4900000095367432
 
 print(Math.random())  // 0.0..1.0
 print(Math.round(Math.random() * 100)) // 0..100
-print((int)(Math.random() * 100)) // 0..100
+print((Math.random() * 100) as int) // 0..100
